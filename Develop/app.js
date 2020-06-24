@@ -125,8 +125,6 @@ function promptUser() {
   });
 }
 
-promptUser();
-
 function newEmployee() {
   inquirer
     .prompt([
