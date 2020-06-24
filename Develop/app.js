@@ -126,3 +126,26 @@ function promptUser() {
 }
 
 promptUser();
+
+function newEmployee() {
+  inquirer
+    .prompt([
+      {
+        type: "confirm",
+        name: "newEmployee",
+        message: "Would you like to enter a new employee?",
+        default: true,
+      },
+    ])
+    .then(function (answers) {
+      if (answers.newEmployee) {
+        promptUser();
+      } else {
+        const html = render(employeeList);
+        fs.writeFile(outputPath, html, function (err) {
+          if (err) throw err;
+        });
+      }
+    });
+}
+promptUser();
